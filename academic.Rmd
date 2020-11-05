@@ -1,6 +1,67 @@
 ---
-title: "Academic Experience"
+title: "Academic and Professional Experience"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
 ---
 
-### Academic and Professional Experience 
+### Academics
+
+
+##### **Columbia University** - Master's in Public Health 
+Expected degree conferral in 2021
+
+Concentration: Epidemiology 
+
+Certificate: Global Health 
+
+##### **Cornell University** - Bachelor's of Science 
+
+Major: Animal Science 
+
+Minor: Global Health 
+
+
+### Work Experience 
+
+
+##### **1) Global Health Program Field Experience**
+*Researcher* 
+
+Moshi, Tanzania
+
+- Collaborated with Tanzanian medical students to design research on relevant global health issues in the Kilimanjaro region
+- Conducted primary and secondary policy research and stakeholder interviews on the topic of menstrual hygiene management, produced report which was presented to local stakeholders
+- Observed surgeries and healthcare techniques in a rural, resource poor hospital and went on mobile clinic trips
+
+##### **2) International Rescue Committee** 
+*Asylee casework intern* 
+
+Silver Spring, MD
+
+- Met with asylees from countries including Ethiopia, Cameroon, and El Salvador to help them transition into a life in the US by helping them obtain resources like food stamps, medical insurance, healthcare, social security, and cultural competency through English classes. 
+- Assigned around ten refugees per week to cash assistance programs and helped them with resume building and job applications. 
+
+##### **3) Charles River Laboratories**
+*CRT (Corporate Response Team)*
+
+Bethesda, MD
+
+- Served on corporate response team to provide lab support at various National Institutes of Health lab sites that are conducting research from genetics and cancer to infectious disease and body development
+- Work as a Lab Animal tech with animal models to ensure proper animal welfare practices in the lab and successful research outcomes, provide animal husbandry to care for animals and treat animals in distress and keeping up with facility maintenance 
+
+##### **4) World Vision Internal/AfriChild RCT Project**
+*Research Assitant* 
+
+Uganda (Remote)
+
+- Assisted with Transcript editing and clean up from survey data 
+- Conducted qualitative analysis on effectiveness of intervention and presented findings through written reports and presentations
+- Assisted with coding of transcripts and further qualitative analysis using Dedoose software 
+
+
+
+
 
