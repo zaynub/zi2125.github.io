@@ -1,0 +1,46 @@
+---
+title: "Plots"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    theme: darkly
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+```
+
+```{r read, echo = FALSE}
+data("instacart")
+
+instacart_new =
+  instacart %>% 
+  mutate(
+    order_day = factor(order_dow, levels = 0:6,
+                       labels = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
+  ) %>% 
+  select(order_id,  product_id, user_id,  order_day, order_hour_of_day, product_name, aisle, department)
+```
+
+### Chart A
+
+```{r echo = FALSE, warning = FALSE}
+instacart_new %>% 
+  count(department) %>% 
+  mutate(department = fct_reorder(department, n)) %>% 
+  plot_ly(x = ~department, y = ~n, color = ~department, type = "bar", colors = "magma") %>% 
+  layout(
+    title = "Number of Orders by Department",
+    xaxis = list(title = "Department"),
+    yaxis = list(title = "Number of Orders"))
+```
+
+### Chart B
+```{r}
+
+```
+
+
