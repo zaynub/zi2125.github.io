@@ -2,8 +2,10 @@
 title: "Plots"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+    orientation: rows
+    vertical_layout: scroll
+    social: menu
+    source_code: embed
     theme: darkly
 ---
 
@@ -12,6 +14,9 @@ library(tidyverse)
 library(plotly)
 library(p8105.datasets)
 ```
+
+Row
+-----------------------------------------------------------------------
 
 ```{r read, echo = FALSE}
 data("instacart")
@@ -29,6 +34,7 @@ instacart_new =
 
 ```{r echo = FALSE, warning = FALSE}
 instacart_new %>% 
+  filter(department != "missing") %>% 
   count(department) %>% 
   mutate(department = fct_reorder(department, n)) %>% 
   plot_ly(x = ~department, y = ~n, color = ~department, type = "bar", colors = "magma") %>% 
@@ -39,8 +45,62 @@ instacart_new %>%
 ```
 
 ### Chart B
-```{r}
 
+```{r}
+instacart_new %>% 
+  group_by(order_day, order_hour_of_day) %>% 
+  summarize(hourly_orders = n()) %>% 
+  mutate(
+    text_label = str_c("Hour: ", order_hour_of_day, "\nDay: ", order_day, "\nNumber of Orders: ", hourly_orders)
+  ) %>% 
+  plot_ly(
+    x = ~order_hour_of_day,
+    y = ~hourly_orders, 
+    color = ~order_day,
+    type = "scatter", 
+    text = ~text_label, 
+    colors = "viridis") %>% 
+  layout(
+    title = "Number of Orders by Time of Day",
+    xaxis = list(title = "Hour of Day"),
+    yaxis = list(title = "Number of Orders")
+  )
 ```
+
+Row 
+---------------------------------------------------------------------------
+### Chart C
+
+```{r}
+instacart_new %>% 
+  filter(aisle %in% c("fresh vegetables", "fresh fruits", "frozen produce", "packaged vegetables fruits")) %>%
+  count(aisle) %>% 
+  plot_ly(
+    x = ~aisle,
+    y = ~n,
+    color = ~aisle, 
+    type = "bar"
+    ) %>% 
+  layout(
+    title = "Comparing Number of Orders for Fresh vs Frozen Produce",
+    xaxis = list(title = "Aisle"),
+    yaxis = list(title = "Number of Orders")
+  )
+```
+
+### Chart D
+
+```{r}
+instacart %>% 
+  filter(department != "missing") %>% 
+  mutate(department = fct_reorder(department, order_hour_of_day)) %>% 
+  plot_ly(y = ~order_hour_of_day, color = ~department, type = "box", colors = "viridis") %>% 
+  layout(
+    title = "Distrubtion of Time of Orders by Department",
+    xaxis = list(title = "Department"),
+    yaxis = list(title = "Time of Day")
+  )
+```
+
 
 
